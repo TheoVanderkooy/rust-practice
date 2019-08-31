@@ -80,21 +80,8 @@ pub fn merge_two_lists_inplace(l1: Option<Box<ListNode>>, l2: Option<Box<ListNod
         }
     }
 
-    // take from whatever is left of l1
-    while l1.is_some() {
-        let mut temp = l1.unwrap();
-        l1 = temp.next.take();
-        *tail = Option::Some(temp);
-        tail = &mut tail.as_mut().unwrap().next;
-    }
-
-    // take from whatever is left of l2
-    while l2.is_some() {
-        let mut temp = l2.unwrap();
-        l2 = temp.next.take();
-        *tail = Option::Some(temp);
-        tail = &mut tail.as_mut().unwrap().next;
-    }
+    // once one list runs out, append the rest of the other list
+    *tail = if l1.is_some() { l1 } else { l2 };
 
     ret
 }
