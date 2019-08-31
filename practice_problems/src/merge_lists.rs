@@ -58,7 +58,6 @@ pub fn merge_two_lists_it(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) 
 }
 
 // third iterative approach that doesn't make new nodes (reuses existing nodes)
-#[allow(dead_code)]
 pub fn merge_two_lists_inplace(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
     let mut l1 = l1;
     let mut l2 = l2;

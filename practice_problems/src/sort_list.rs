@@ -2,7 +2,6 @@
 use crate::list_node::*;
 use crate::merge_lists::merge_two_lists_inplace;
 
-#[allow(dead_code)]
 fn count_list(head: &Option<Box<ListNode>>) -> u32 {
     if let Some(n) = head.as_ref() {
         1 + count_list(&n.next)
@@ -27,7 +26,6 @@ fn split_list(list: Option<Box<ListNode>>, n: u32) -> (Option<Box<ListNode>>, Op
     (l1, l2)
 }
 
-#[allow(dead_code)]
 fn sort_list_rec(list: Option<Box<ListNode>>, n: u32) -> Option<Box<ListNode>> {
     if n <= 1 {
         return list;
@@ -41,7 +39,6 @@ pub fn sort_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
     let n = count_list(&head);
     sort_list_rec(head, n)
 }
-
 
 
 

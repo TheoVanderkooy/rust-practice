@@ -24,7 +24,6 @@ impl ListNode {
     }
 
     // create a list from a slice
-    #[allow(dead_code)]
     pub fn from_slice( arr: &[i32] ) -> Option<Box<Self>> {
         if arr.len() == 0 {
             Option::None
