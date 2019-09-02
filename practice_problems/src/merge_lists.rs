@@ -67,17 +67,18 @@ pub fn merge_two_lists_inplace(l1: Option<Box<ListNode>>, l2: Option<Box<ListNod
 
     // take min from each
     while let ( Some(n1), Some(n2) ) = (&l1, &l2) {
+        let mut temp;
+        // pop the first node off the list with the lower head
         if n1.val < n2.val {
-            let mut temp = l1.unwrap();
+            temp = l1.unwrap();
             l1 = temp.next.take();
-            *tail = Option::Some(temp);
-            tail = &mut tail.as_mut().unwrap().next;
         } else {
-            let mut temp = l2.unwrap();
+            temp = l2.unwrap();
             l2 = temp.next.take();
-            *tail = Option::Some(temp);
-            tail = &mut tail.as_mut().unwrap().next;
         }
+        // append node to output list
+        *tail = Option::Some(temp);
+        tail = &mut tail.as_mut().unwrap().next;
     }
 
     // once one list runs out, append the rest of the other list
