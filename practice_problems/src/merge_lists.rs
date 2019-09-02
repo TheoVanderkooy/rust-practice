@@ -9,12 +9,10 @@ pub fn merge_two_lists_rec(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>)
         } else {
             Option::Some(Box::new(ListNode::cons(m2.val, merge_two_lists_rec(l2.unwrap().next, l1)) ) )
         }
+    } else if l1.is_none() {
+        l2
     } else {
-        if l1.is_none() {
-            l2
-        } else {
-            l1
-        }
+        l1
     }
 }
 
