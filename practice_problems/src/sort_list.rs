@@ -30,7 +30,7 @@ fn sort_list_rec(list: Option<Box<ListNode>>, n: u32) -> Option<Box<ListNode>> {
     if n <= 1 {
         return list;
     }
-    let (l1, l2) =split_list(list, n);
+    let (l1, l2) = split_list(list, n);
     merge_two_lists_inplace(sort_list_rec(l1, n/2), sort_list_rec(l2, n - (n/2)))
 }
 
@@ -39,7 +39,6 @@ pub fn sort_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
     let n = count_list(&head);
     sort_list_rec(head, n)
 }
-
 
 
 #[cfg(test)]
