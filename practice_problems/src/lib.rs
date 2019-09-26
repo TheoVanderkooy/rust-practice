@@ -11,3 +11,4 @@ mod find3sum;
 
 // other
 pub mod eddington;
+pub mod agreeablematrices;
